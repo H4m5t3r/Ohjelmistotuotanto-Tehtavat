@@ -1,5 +1,9 @@
 package ohtuesimerkki;
 
+import ohtuesimerkki.Player;
+import ohtuesimerkki.PlayerReader;
+import ohtuesimerkki.Statistics;
+
 public class Main {
     public static void main(String[] args) {
         Statistics stats = new Statistics( new PlayerReader("https://nhlstatisticsforohtu.herokuapp.com/players.txt") );
@@ -14,6 +18,6 @@ public class Main {
         System.out.println("Top scorers");
         for (Player player : stats.topScorers(10) ) {
             System.out.println( player );
-        }        
+        }
     }
 }
