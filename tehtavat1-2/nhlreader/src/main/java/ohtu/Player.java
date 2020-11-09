@@ -1,12 +1,14 @@
 
 package ohtu;
 
-public class Player {
+import java.util.Comparator;
+
+public class Player implements Comparable<Player> {
     private String name;
     private String nationality;
     private String team;
-    private String goals;
-    private String assists;
+    private int goals;
+    private int assists;
 
     public void setName(String name) {
         this.name = name;
@@ -17,15 +19,15 @@ public class Player {
     }
     
     public void setTeam(String team) {
-        this.name = team;
+        this.team = team;
     }
     
-    public void setGoals(String goals) {
-        this.name = goals;
+    public void setGoals(int goals) {
+        this.goals = goals;
     }
     
-    public void setAssists(String assists) {
-        this.name = assists;
+    public void setAssists(int assists) {
+        this.assists = assists;
     }
 
     public String getName() {
@@ -40,17 +42,26 @@ public class Player {
         return team;
     }
     
-    public String getGoals() {
+    public int getGoals() {
         return goals;
     }
     
-    public String getAssists() {
+    public int getAssists() {
         return assists;
+    }
+    
+    public int getPoints() {
+        return goals + assists;
     }
 
     @Override
     public String toString() {
-        return name + " team " + team + " goals " + goals + " assists " + assists;
+        return String.format("%-20s",name) + " " + team + " " + String.format("%2d",goals) + " + " 
+                + String.format("%2d",assists) + " = " + getPoints();
+    }
+
+    public int compareTo(Player t) {
+        return t.getPoints()-this.getPoints();
     }
       
 }
