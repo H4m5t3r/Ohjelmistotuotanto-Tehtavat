@@ -1,6 +1,7 @@
 package ohtu;
 
 import io.cucumber.java.Before;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
 import io.cucumber.java.en.Then;
@@ -29,6 +30,20 @@ public class Stepdefs {
     public void commandLoginSelected() throws Throwable {
         inputLines.add("login");
     }
+    
+    @Given("^command new is selected$")
+    public void commandNewSelected() throws Throwable {
+        inputLines.add("new");
+    }
+    
+    @Given("user {string} with password {string} is created")
+    public void newUser(String username, String password) {
+        inputLines.add("new");
+        inputLines.add(username);
+        inputLines.add(password);
+        
+        
+    }
 
     @When("username {string} and password {string} are entered")
     public void usernameAndPasswordAreEntered(String username, String password) {
@@ -43,6 +58,6 @@ public class Stepdefs {
     @Then("system will respond with {string}")
     public void systemWillRespondWith(String expectedOutput) {
         assertTrue(io.getPrints().contains(expectedOutput));
-    }    
+    }
 
 }
