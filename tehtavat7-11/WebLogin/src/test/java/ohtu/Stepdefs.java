@@ -30,6 +30,16 @@ public class Stepdefs {
         element.click();
     }
     
+    @Given("user with username {string} with password {string} is successfully created")
+    public void accountIsSuccessfullyCreated(String username, String password) {
+        driver.get(baseUrl);
+        WebElement element = driver.findElement(By.linkText("register new user"));
+        element.click();
+        createAccount(username, password, password);
+        returnToMainPageFromSuccessfullyCreatedAccount();
+        
+    }
+    
     @When("correct username {string} and password {string} are given")
     public void correctUsernameAndPasswordAreGiven(String username, String password) {
         logInWith(username, password);
@@ -122,5 +132,12 @@ public class Stepdefs {
         element.sendKeys(passwordConfirmation);
         element = driver.findElement(By.name("signup"));
         element.submit();
+    }
+
+    private void returnToMainPageFromSuccessfullyCreatedAccount() {
+        WebElement element = driver.findElement(By.linkText("continue to application mainpage"));
+        element.click();
+        element = driver.findElement(By.linkText("logout"));
+        element.click();
     }
 }
