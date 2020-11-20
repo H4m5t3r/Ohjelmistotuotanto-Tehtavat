@@ -43,12 +43,7 @@ public class IntJoukko {
             return true;
         }
         if (!kuuluu(luku)) {
-            luvut[alkioidenLkm] = luku;
-            alkioidenLkm++;
-            
-            if (taulukkoOnTaynna()) {
-                muodostaIsompiTaulukko();
-            }
+            lisaaLukuJokaEiKuuluJoukkoon(luku);
             return true;
         }
         return false;
@@ -56,6 +51,15 @@ public class IntJoukko {
     
     private boolean taulukkoOnTaynna() {
         return alkioidenLkm % luvut.length == 0;
+    }
+    
+    private void lisaaLukuJokaEiKuuluJoukkoon(int luku) {
+        luvut[alkioidenLkm] = luku;
+        alkioidenLkm++;
+            
+        if (taulukkoOnTaynna()) {
+            muodostaIsompiTaulukko();
+        }
     }
     
     private void muodostaIsompiTaulukko() {
