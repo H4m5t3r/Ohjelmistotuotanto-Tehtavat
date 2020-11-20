@@ -5,9 +5,14 @@ public class TennisGame {
     private int player1_score = 0;
     private int player2_score = 0;
     private final int four = 4;
+    private final String[] gameSituation;
     
     public TennisGame(String player1Name, String player2Name) {
-        
+        gameSituation = new String[4];
+        gameSituation[0] = "Love";
+        gameSituation[1] = "Fifteen";
+        gameSituation[2] = "Thirty";
+        gameSituation[3] = "Forty";
     }
 
     public void wonPoint(String playerName) {
@@ -20,7 +25,7 @@ public class TennisGame {
     public String getScore() {
         String score = "";
         if (player1_score==player2_score) {
-            score = setScoreToTie(score);
+            score = setScoreToTie();
         }
         else if (player1_score>=four || player2_score>=four) {
             score = scoreOverFour(score);
@@ -31,25 +36,11 @@ public class TennisGame {
         return score;
     }
 
-    private String setScoreToTie(String score) {
-        switch (player1_score) {
-            case 0:
-                    score = "Love-All";
-                break;
-            case 1:
-                    score = "Fifteen-All";
-                break;
-            case 2:
-                    score = "Thirty-All";
-                break;
-            case 3:
-                    score = "Forty-All";
-                break;
-            default:
-                    score = "Deuce";
-                break;
+    private String setScoreToTie() {
+        if (player1_score > 3) {
+            return "Deuce";
         }
-        return score;
+        return gameSituation[player1_score] + "-All";
     }
 
     private String scoreOverFour(String score) {
@@ -85,16 +76,10 @@ public class TennisGame {
     }
 
     private String getGameSituation(String score, int tempScore) {
-        switch(tempScore) {
-            case 0:
-                return score+="Love";
-            case 1:
-                return score+="Fifteen";
-            case 2:
-                return score+="Thirty";
-            default:
-                return score+="Forty";
+        if (tempScore > 2) {
+            return score + gameSituation[3];
         }
+        return score + gameSituation[tempScore];
     }
     
 }
