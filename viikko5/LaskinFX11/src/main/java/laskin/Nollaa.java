@@ -20,13 +20,14 @@ public class Nollaa extends Komento {
     
     @Override
     public void suorita() {
+        Integer.parseInt(syotekentta.getText());
         tuloskentta.setText("0");
         syotekentta.setText("");
     }
 
     @Override
     public void peru() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        tuloskentta.setText(Integer.toString(viimeinenOperaatioluku));
     }
     
 }

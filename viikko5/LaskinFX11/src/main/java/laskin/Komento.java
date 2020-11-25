@@ -16,10 +16,12 @@ public abstract class Komento {
     protected TextField tuloskentta;
     protected TextField syotekentta;
     protected int viimeinenOperaatioluku;
+    protected Sovelluslogiikka sovelluslogiikka;
     
     public Komento(TextField tuloskentta, TextField syotekentta, Button nollaa, Button undo, Sovelluslogiikka sovellus) {
         this.tuloskentta = tuloskentta;
         this.syotekentta = syotekentta;
+        this.sovelluslogiikka = sovellus;
     }
     
     public abstract void suorita();
