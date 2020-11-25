@@ -13,12 +13,9 @@ import javafx.scene.control.TextField;
  * @author taleiko
  */
 public class Erotus extends Komento {
-    private TextField tuloskentta;
-    private TextField syotekentta;
     
     public Erotus(TextField tuloskentta, TextField syotekentta, Button nollaa, Button undo, Sovelluslogiikka sovellus) {
-        this.tuloskentta = tuloskentta;
-        this.syotekentta = syotekentta;
+        super(tuloskentta, syotekentta, nollaa, undo, sovellus);
     }
 
     @Override

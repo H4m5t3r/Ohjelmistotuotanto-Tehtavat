@@ -13,14 +13,11 @@ import javafx.scene.control.TextField;
  * @author taleiko
  */
 public class Nollaa extends Komento {
-    private TextField tuloskentta;
-    private TextField syotekentta;
-    
-    public Nollaa(TextField tuloskentta, TextField syotekentta, Button nollaa, Button undo, Sovelluslogiikka sovellus) {
-        this.syotekentta = tuloskentta;
-        this.tuloskentta = tuloskentta;
-    }
 
+    public Nollaa(TextField tuloskentta, TextField syotekentta, Button nollaa, Button undo, Sovelluslogiikka sovellus) {
+        super(tuloskentta, syotekentta, nollaa, undo, sovellus);
+    }
+    
     @Override
     public void suorita() {
         tuloskentta.setText("0");
