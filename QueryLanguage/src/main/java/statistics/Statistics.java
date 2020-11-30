@@ -11,7 +11,7 @@ public class Statistics {
     private List<Player> players;
     
     public Statistics(PlayerReader playerReader) {
-        players = playerReader.getPlayers();        
+        players = playerReader.getPlayers();
     }
     
     public Player search(String name) {
