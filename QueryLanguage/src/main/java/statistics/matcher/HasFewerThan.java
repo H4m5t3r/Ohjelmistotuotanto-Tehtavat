@@ -14,6 +14,7 @@ public class HasFewerThan implements Matcher {
         fieldName = "get"+Character.toUpperCase(category.charAt(0))+category.substring(1, category.length());
     }
 
+    @Override
     public boolean matches(Player p) {
         try {                                    
             Method method = p.getClass().getMethod(fieldName);

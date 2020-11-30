@@ -10,6 +10,7 @@ public class Not implements Matcher {
         this.matcher = matcher;
     }
     
+    @Override
     public boolean matches(Player p) {
         return !matcher.matches(p);
     }
