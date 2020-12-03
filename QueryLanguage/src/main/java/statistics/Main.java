@@ -8,20 +8,13 @@ public class Main {
         
         QueryBuilder query = new QueryBuilder();
         Matcher m = query.oneOf(
-            query.playsIn("EDM")
-                .hasAtLeast(40, "points").build(),
-
             query.playsIn("PHI")
                 .hasAtLeast(10, "assists")
-                .hasFewerThan(5, "goals").build()
+                .hasFewerThan(5, "goals").build(),
 
-            
+            query.playsIn("EDM")
+                .hasAtLeast(40, "points").build()
         ).build();
-
-//        Matcher m = new Or( new HasAtLeast(40, "goals"),
-//                            new HasAtLeast(60, "assists")
-//        );
-
 
 
         for (Player player : stats.matches(m)) {

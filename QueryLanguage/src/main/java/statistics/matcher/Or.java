@@ -21,9 +21,4 @@ public class Or implements Matcher {
 
         return false;
     }
-    
-    public void change() {
-        this.matchers[5] = new And();
-    }
-    
 }
