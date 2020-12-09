@@ -5,7 +5,7 @@ import java.util.Scanner;
 public abstract class KiviPaperiSakset {
     static final Scanner scanner = new Scanner(System.in);
     
-    // tämä on ns template metodi
+    
     public void pelaa() {
         Tuomari tuomari = new Tuomari();
 
@@ -20,8 +20,6 @@ public abstract class KiviPaperiSakset {
             ekanSiirto = ensimmaisenSiirto();
 
             tokanSiirto = toisenSiirto();
-//            System.out.print("Toisen pelaajan siirto: ");
-//            tokanSiirto = toisenSiirto();
         }
 
         System.out.println();
@@ -34,7 +32,6 @@ public abstract class KiviPaperiSakset {
         return scanner.nextLine();
     }
 
-    // tämä on abstrakti metodi sillä sen toteutus vaihtelee eri pelityypeissä
     abstract protected String toisenSiirto();
     
     protected static boolean onkoOkSiirto(String siirto) {
